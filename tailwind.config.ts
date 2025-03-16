@@ -109,6 +109,10 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' },
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' },
 				}
 			},
 			animation: {
@@ -121,6 +125,7 @@ export default {
 				'scale-in': 'scale-in 0.3s ease-out',
 				'blur-in': 'blur-in 0.4s ease-out',
 				'float': 'float 6s ease-in-out infinite',
+				'shimmer': 'shimmer 2s linear infinite',
 			},
 			transitionProperty: {
 				'height': 'height',
@@ -131,7 +136,7 @@ export default {
 				'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
 			},
 			fontFamily: {
-				'sans': ['"Inter"', 'sans-serif'],
+				'sans': ['"Poppins"', '"Inter"', 'sans-serif'],
 				'display': ['"Playfair Display"', 'serif'],
 			},
 		}
