@@ -1,0 +1,101 @@
+
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const navItems = [
+    { title: 'Home', href: '#home' },
+    { title: 'Services', href: '#services' },
+    { title: 'About', href: '#about' },
+    { title: 'Contact', href: '#contact' },
+  ];
+
+  return (
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+      )}
+    >
+      <div className="container flex items-center justify-between">
+        {/* Logo */}
+        <a 
+          href="#home"
+          className="font-display text-2xl font-semibold relative z-10"
+        >
+          Mahati
+          <span className="text-primary font-bold">.</span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:block">
+          <ul className="flex space-x-8">
+            {navItems.map((item) => (
+              <li key={item.title}>
+                <a
+                  href={item.href}
+                  className="text-sm font-medium hover-underline text-primary/80 hover:text-primary"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Mobile Navigation Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden relative z-10 p-1"
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Navigation Menu */}
+        <div
+          className={cn(
+            'fixed inset-0 bg-white z-0 transform transition-transform duration-300 ease-out-expo',
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          )}
+        >
+          <div className="flex flex-col h-full justify-center items-center space-y-8 pt-16">
+            {navItems.map((item) => (
+              <a
+                key={item.title}
+                href={item.href}
+                className="text-2xl font-medium text-primary hover:text-primary/80 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
