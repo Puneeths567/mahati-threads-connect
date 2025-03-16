@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
-    // Implement reveal-on-scroll animation
+    // Implement reveal-on-scroll animation with smoother transitions
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal-on-scroll');
       
@@ -27,6 +27,20 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll);
     // Trigger once on load
     handleScroll();
+    
+    // Add smooth scrolling to all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href') || '');
+        if (target) {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.pageYOffset - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
