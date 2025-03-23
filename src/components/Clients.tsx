@@ -9,13 +9,15 @@ const Clients = () => {
       name: "EasyBuy",
       description: "A new-age youthful fashion brand under Landmark Group, one of the largest multinational retailers in the country.",
       logo: "https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-      alt: "EasyBuy logo - fashion retail brand"
+      alt: "EasyBuy logo - fashion retail brand",
+      url: "https://www.landmarkrewards.in/brand-detail/easybuy/b/137#:~:text=Easybuy%20is%20the%20newest%20format,conceptualized%20and%20created%20for%20India."
     },
     {
       name: "Maersk",
       description: "Global leader in Transportation, Logistics, Supply Chain and Storage solutions.",
       logo: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-      alt: "Maersk logo - global logistics company"
+      alt: "Maersk logo - global logistics company",
+      url: "https://www.maersk.com/"
     }
   ];
 
@@ -73,14 +75,14 @@ const Clients = () => {
                         {client.description}
                       </p>
                       <div className="inline-flex">
-                        <span className={cn(
+                        <a href={client.url} target="_blank" rel="noopener noreferrer" className={cn(
                           "flex items-center text-sm font-medium",
                           "text-primary/70 group-hover:text-primary",
                           "transition-colors duration-200"
                         )}>
-                          Trusted Partnership
+                          Visit Website
                           <ExternalLink className="ml-1 h-3 w-3 opacity-70" />
-                        </span>
+                        </a>
                       </div>
                     </div>
                   </div>

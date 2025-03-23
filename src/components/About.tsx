@@ -1,11 +1,10 @@
-
 import { CheckSquare } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { cn } from '@/lib/utils';
 
 const About = () => {
   const qualities = [
-    "Premium B2B clothing manufacturing",
+    "Premium B2B clothing refinishing",
     "Experienced team of professionals",
     "Quality-focused approach",
     "End-to-end service capabilities",
@@ -17,7 +16,6 @@ const About = () => {
     <section id="about" className="py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* About Image */}
           <AnimatedSection animation="slide-in-left">
             <div className="relative">
               <div className="rounded-2xl overflow-hidden">
@@ -29,13 +27,11 @@ const About = () => {
                 />
               </div>
               
-              {/* Decorative elements */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-md -z-10"></div>
               <div className="absolute -top-4 -right-4 w-32 h-32 border border-primary/20 rounded-md -z-10"></div>
             </div>
           </AnimatedSection>
 
-          {/* About Content */}
           <div>
             <AnimatedSection animation="fade-in">
               <span className="text-sm font-medium uppercase tracking-wide text-primary/70">

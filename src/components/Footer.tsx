@@ -1,5 +1,5 @@
 
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Mail, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Footer = () => {
@@ -20,11 +20,27 @@ const Footer = () => {
               href="#home"
               className="font-display text-2xl font-semibold"
             >
-              Mahati<span className="font-bold text-secondary/90">.</span>
+              Mahati Enterprises<span className="font-bold text-secondary/90">.</span>
             </a>
             <p className="mt-4 text-primary-foreground/80 max-w-md">
-              Mahati Enterprises delivers premium B2B clothing solutions and professional services tailored to elevate your business operations.
+              Mahati Enterprises delivers premium B2B clothing refinishing solutions and professional services tailored to elevate your business operations.
             </p>
+            
+            {/* Contact Information */}
+            <div className="mt-6 space-y-2">
+              <div className="flex items-center">
+                <Mail className="h-4 w-4 mr-2 opacity-70" />
+                <a href="mailto:mahatienterprises09@gmail.com" className="text-primary-foreground/90 hover:text-primary-foreground">
+                  mahatienterprises09@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Phone className="h-4 w-4 mr-2 opacity-70" />
+                <span className="text-primary-foreground/90">
+                  +91 7975414686, +91 9380114195
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
