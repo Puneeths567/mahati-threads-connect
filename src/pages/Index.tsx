@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
-    // Add a custom cursor effect
+    // Enhanced custom cursor effect
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
     document.body.appendChild(cursor);
@@ -21,20 +21,20 @@ const Index = () => {
     
     document.addEventListener('mousemove', moveCursor);
     
-    // Add hover effect to interactive elements
+    // Add hover effect to interactive elements with subtle delay
     const interactiveElements = document.querySelectorAll('a, button, input, textarea, .interactive');
     
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursor.classList.add('cursor-grow');
+        setTimeout(() => cursor.classList.add('cursor-grow'), 5);
       });
       
       el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('cursor-grow');
+        setTimeout(() => cursor.classList.remove('cursor-grow'), 5);
       });
     });
     
-    // Implement reveal-on-scroll animation with smoother transitions
+    // Enhanced reveal-on-scroll animation with smoother transitions
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal-on-scroll');
       
@@ -48,7 +48,7 @@ const Index = () => {
         }
       }
       
-      // Parallax scrolling effect for sections
+      // Enhanced parallax scrolling effect for sections
       const sections = document.querySelectorAll('section');
       sections.forEach((section, index) => {
         const scrollY = window.scrollY;
@@ -65,44 +65,77 @@ const Index = () => {
     // Trigger once on load
     handleScroll();
     
-    // Add smooth scrolling to all anchor links
+    // Smooth scrolling with easing function
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href') || '');
         if (target) {
-          window.scrollTo({
-            top: target.getBoundingClientRect().top + window.pageYOffset - 80,
-            behavior: 'smooth'
-          });
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 80;
+          const startPosition = window.pageYOffset;
+          const distance = targetPosition - startPosition;
+          let startTime: number | null = null;
+          
+          function animation(currentTime: number) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const duration = 800; // ms
+            
+            // Easing function: easeOutQuart
+            const run = (t: number) => 1 - Math.pow(1 - t, 4);
+            
+            const runAnimation = run(Math.min(timeElapsed / duration, 1));
+            
+            window.scrollTo(0, startPosition + distance * runAnimation);
+            
+            if (timeElapsed < duration) {
+              requestAnimationFrame(animation);
+            }
+          }
+          
+          requestAnimationFrame(animation);
         }
       });
     });
     
-    // Create animated background shapes
+    // Create enhanced animated background shapes with varying sizes and opacities
     const createShapes = () => {
       const shapeContainer = document.createElement('div');
       shapeContainer.classList.add('background-shapes');
       document.body.appendChild(shapeContainer);
       
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 15; i++) {
         const shape = document.createElement('div');
         shape.classList.add('floating-shape');
         shape.style.left = `${Math.random() * 100}vw`;
         shape.style.top = `${Math.random() * 100}vh`;
-        shape.style.animationDelay = `${Math.random() * 5}s`;
-        shape.style.animationDuration = `${10 + Math.random() * 20}s`;
-        shape.style.opacity = `${0.03 + Math.random() * 0.06}`;
-        shape.style.width = shape.style.height = `${30 + Math.random() * 60}px`;
+        shape.style.animationDelay = `${Math.random() * 10}s`;
+        shape.style.animationDuration = `${20 + Math.random() * 30}s`;
+        shape.style.opacity = `${0.03 + Math.random() * 0.08}`;
         
-        // Add some variety to shapes
-        const shapeType = Math.floor(Math.random() * 3);
-        if (shapeType === 0) {
-          shape.style.borderRadius = '50%'; // Circle
-        } else if (shapeType === 1) {
-          shape.style.borderRadius = '10%'; // Rounded square
-        } else {
-          shape.style.borderRadius = '50% 10% 50% 10%'; // Organic shape
+        // Varied sizes for more organic feel
+        const size = 30 + Math.random() * 100;
+        shape.style.width = `${size}px`;
+        shape.style.height = `${size}px`;
+        
+        // Add variety to shapes
+        const shapeType = Math.floor(Math.random() * 5);
+        switch(shapeType) {
+          case 0:
+            shape.style.borderRadius = '50%'; // Circle
+            break;
+          case 1:
+            shape.style.borderRadius = '10%'; // Rounded square
+            break;
+          case 2:
+            shape.style.borderRadius = '50% 10% 50% 10%'; // Organic shape
+            break;
+          case 3:
+            shape.style.borderRadius = '30% 70% 70% 30% / 30% 30% 70% 70%'; // Blob
+            break;
+          case 4:
+            shape.style.borderRadius = '60% 40% 30% 70% / 60% 30% 70% 40%'; // Complex blob
+            break;
         }
         
         shapeContainer.appendChild(shape);
