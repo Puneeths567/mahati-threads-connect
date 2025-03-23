@@ -172,7 +172,11 @@ const Contact = () => {
             </AnimatedSection>
             
             <AnimatedSection animation="fade-in" delay={300}>
-              
+              <div className="bg-white/30 border border-primary/5 rounded-xl p-6 shadow-md">
+                <h4 className="font-medium mb-2">Working Hours</h4>
+                <p className="text-muted-foreground text-sm">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                <p className="text-muted-foreground text-sm">Sunday: Closed</p>
+              </div>
             </AnimatedSection>
           </div>
         </div>
