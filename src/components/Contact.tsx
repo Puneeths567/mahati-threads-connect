@@ -58,7 +58,7 @@ const Contact = () => {
     link: 'mailto:mahatienterprises09@gmail.com'
   }, {
     icon: Phone,
-    title: 'Phone',
+    title: 'For Enquiries',
     details: '+91 7975414686, +91 9380114195',
     link: 'tel:+917975414686'
   }, {
