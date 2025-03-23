@@ -44,7 +44,7 @@ const Clients = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {clients.map((client, index) => (
-            <AnimatedSection key={index} animation="slide-in-up" delay={index * 100}>
+            <AnimatedSection key={index} animation="slide-in-right" delay={index * 100}>
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform rotate-1 scale-[1.01] opacity-70 transition-all duration-500 group-hover:scale-[1.03] group-hover:rotate-2 group-hover:opacity-100 -z-10"></div>
                 <div className={cn(
