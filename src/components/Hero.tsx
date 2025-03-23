@@ -84,7 +84,7 @@ const Hero = () => {
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80" 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
                   alt="Professional clothing services by Mahati Enterprises"
                   className="rounded-xl w-full h-auto object-cover aspect-[4/3]"
                 />

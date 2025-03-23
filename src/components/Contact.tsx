@@ -1,8 +1,10 @@
+
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { useContactForm } from '@/utils/contactForm';
 import { cn } from '@/lib/utils';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -15,6 +17,7 @@ const Contact = () => {
   const {
     submitContactForm
   } = useContactForm();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -25,13 +28,13 @@ const Contact = () => {
       [name]: value
     }));
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
       const success = await submitContactForm({
         ...formData
-        // This would go to mahatienterprises09@gmail.com in a real implementation
       });
       if (success) {
         // Reset form on success
@@ -47,6 +50,7 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
   const contactDetails = [{
     icon: Mail,
     title: 'Email',
@@ -55,14 +59,15 @@ const Contact = () => {
   }, {
     icon: Phone,
     title: 'Phone',
-    details: '+91 98765 43210',
-    link: 'tel:+919876543210'
+    details: '+91 7975414686, +91 9380114195',
+    link: 'tel:+917975414686'
   }, {
     icon: MapPin,
     title: 'Location',
     details: 'Bangalore, Karnataka, India',
     link: 'https://maps.google.com/?q=Bangalore,Karnataka,India'
   }];
+
   return <section id="contact" className="py-20 bg-gradient-to-b from-secondary/10 to-background">
       <div className="container mx-auto px-4">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
@@ -174,4 +179,5 @@ const Contact = () => {
       </div>
     </section>;
 };
+
 export default Contact;
