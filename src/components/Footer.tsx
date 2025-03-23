@@ -1,25 +1,18 @@
-
 import { ArrowUp, Mail, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   };
-
-  return (
-    <footer className="bg-primary text-primary-foreground">
+  return <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4">
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <a 
-              href="#home"
-              className="font-display text-2xl font-semibold"
-            >
+            <a href="#home" className="font-display text-2xl font-semibold">
               Mahati Enterprises<span className="font-bold text-secondary/90">.</span>
             </a>
             <p className="mt-4 text-primary-foreground/80 max-w-md">
@@ -47,42 +40,16 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['Home', 'Services', 'About', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase()}`}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors hover-underline text-sm"
-                  >
+              {['Home', 'Services', 'About', 'Contact'].map(item => <li key={item}>
+                  <a href={`#${item.toLowerCase()}`} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors hover-underline text-sm">
                     {item}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="text-base font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              {[
-                'Garment Refinishing', 
-                'Manpower Supply', 
-                'Gardening', 
-                'House Keeping',
-                'Loading Services', 
-                'Security'
-              ].map((item) => (
-                <li key={item}>
-                  <a 
-                    href="#services"
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors hover-underline text-sm"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
         </div>
 
         {/* Bottom */}
@@ -91,23 +58,11 @@ const Footer = () => {
             © {new Date().getFullYear()} Mahati Enterprises. All rights reserved.
           </p>
           
-          <button
-            onClick={scrollToTop}
-            className={cn(
-              "inline-flex items-center justify-center",
-              "p-3 rounded-full bg-primary-foreground/10",
-              "text-primary-foreground hover:bg-primary-foreground/20",
-              "transition-all duration-200",
-              "focus:outline-none focus:ring-2 focus:ring-primary-foreground/20"
-            )}
-            aria-label="Scroll to top"
-          >
+          <button onClick={scrollToTop} className={cn("inline-flex items-center justify-center", "p-3 rounded-full bg-primary-foreground/10", "text-primary-foreground hover:bg-primary-foreground/20", "transition-all duration-200", "focus:outline-none focus:ring-2 focus:ring-primary-foreground/20")} aria-label="Scroll to top">
             <ArrowUp className="h-4 w-4" />
           </button>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
