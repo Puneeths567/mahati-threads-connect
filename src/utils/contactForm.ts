@@ -17,7 +17,8 @@ export const useContactForm = () => {
       // Log the form submission data for debugging
       console.log("Form submission data:", data);
       
-      // Using FormSubmit for reliable email delivery directly to the specified email
+      // Make sure we're using the correct email with FormSubmit
+      // FormSubmit requires the email to be encoded in the URL
       const response = await fetch('https://formsubmit.co/ajax/mahatienterprises09@gmail.com', {
         method: 'POST',
         headers: {
@@ -30,7 +31,8 @@ export const useContactForm = () => {
           phone: data.phone,
           location: data.location || 'Not provided',
           message: data.message,
-          _subject: `New Contact Form Submission from ${data.name} - Mahati Enterprises Website`
+          _subject: `New Contact Form Submission from ${data.name} - Mahati Enterprises Website`,
+          _captcha: false  // Disable captcha to ensure submissions go through
         })
       });
       
