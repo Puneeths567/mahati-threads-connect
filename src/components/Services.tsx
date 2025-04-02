@@ -4,8 +4,7 @@ import {
   Users, 
   Palmtree, 
   Home, 
-  Package, 
-  Shield
+  Package
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedSection from './AnimatedSection';
@@ -62,12 +61,6 @@ const Services = () => {
       description: 'Efficient logistics support for handling merchandise and materials with care and precision.',
       icon: Package,
       delay: 500
-    },
-    {
-      title: 'Security',
-      description: 'Reliable security personnel and systems to protect your assets, inventory, and premises.',
-      icon: Shield,
-      delay: 600
     }
   ];
 

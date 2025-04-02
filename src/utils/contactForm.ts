@@ -17,36 +17,20 @@ export const useContactForm = () => {
       // Log the form submission data for debugging
       console.log("Form submission data:", data);
       
-      // Using Web3Forms for reliable email delivery
-      // This service will deliver the emails to mahatienterprises09@gmail.com
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Using FormSubmit for reliable email delivery directly to the specified email
+      const response = await fetch('https://formsubmit.co/ajax/mahatienterprises09@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          // This access key is specifically for Web3Forms - it's meant to be public
-          access_key: '0df39dee-7b82-4e93-9389-ae67551e98f5',
-          from_name: `${data.name} via Mahati Enterprises Website`,
-          subject: `New Contact Form Submission from ${data.name}`,
-          to_email: "mahatienterprises09@gmail.com",
-          from_email: data.email,
-          message: `
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone}
-Location: ${data.location || 'Not provided'}
-
-Message:
-${data.message}
-          `,
-          // Include all form data directly as fields to ensure it's captured properly
           name: data.name,
           email: data.email,
           phone: data.phone,
           location: data.location || 'Not provided',
-          form_message: data.message
+          message: data.message,
+          _subject: `New Contact Form Submission from ${data.name} - Mahati Enterprises Website`
         })
       });
       
@@ -54,7 +38,7 @@ ${data.message}
       
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("Error from Web3Forms:", errorData);
+        console.error("Error from form submission:", errorData);
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       

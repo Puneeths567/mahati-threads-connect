@@ -10,31 +10,6 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
-    // Enhanced custom cursor effect
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-    
-    const moveCursor = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
-    
-    document.addEventListener('mousemove', moveCursor);
-    
-    // Add hover effect to interactive elements with subtle delay
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, .interactive');
-    
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        setTimeout(() => cursor.classList.add('cursor-grow'), 5);
-      });
-      
-      el.addEventListener('mouseleave', () => {
-        setTimeout(() => cursor.classList.remove('cursor-grow'), 5);
-      });
-    });
-    
     // Enhanced reveal-on-scroll animation with smoother transitions
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal-on-scroll');
@@ -147,8 +122,6 @@ const Index = () => {
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousemove', moveCursor);
-      document.body.removeChild(cursor);
       const shapeContainer = document.querySelector('.background-shapes');
       if (shapeContainer) {
         document.body.removeChild(shapeContainer);

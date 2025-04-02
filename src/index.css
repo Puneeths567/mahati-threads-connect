@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -62,31 +63,6 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
-}
-
-/* Custom Cursor */
-.custom-cursor {
-  width: 18px;
-  height: 18px;
-  background-color: hsl(var(--primary));
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              background-color 0.3s;
-  mix-blend-mode: difference;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-}
-
-.cursor-grow {
-  width: 40px;
-  height: 40px;
-  background-color: hsl(var(--secondary));
-  transition: width 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-              height 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Animated Background Shapes */
