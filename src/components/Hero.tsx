@@ -84,9 +84,15 @@ const Hero = () => {
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1617929912281-22e2b4dbbfef" 
+                  src="/manpower-supply-image.jpg" 
                   alt="Professional manpower supply services by Mahati Enterprises"
                   className="rounded-xl w-full h-auto object-cover aspect-[4/3]"
+                  onError={(e) => {
+                    // Fallback to a reliable image URL if local image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null; // Prevent infinite loop
+                    target.src = "https://images.unsplash.com/photo-1560264280-88b68371db39"; // Workers in textile/garment factory
+                  }}
                 />
               </div>
               
