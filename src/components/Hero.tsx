@@ -23,7 +23,7 @@ const Hero = () => {
                 Mahati Enterprises
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
-                Delivering premium clothing refinishing, professional manpower supply, and comprehensive business solutions.
+                Specialized in premium clothing refinishing and professional manpower supply solutions for the garment industry.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
@@ -84,8 +84,8 @@ const Hero = () => {
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                  alt="Professional clothing services by Mahati Enterprises"
+                  src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" 
+                  alt="Professional clothing manufacturing and refinishing services by Mahati Enterprises"
                   className="rounded-xl w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
