@@ -84,14 +84,14 @@ const Hero = () => {
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1582562124811-c09040d0a901"
-                  alt="Professional garment services by Mahati Enterprises"
+                  src="https://images.unsplash.com/photo-1560264280-88b68371db39"
+                  alt="Skilled labor workers for manpower supply services by Mahati Enterprises"
                   className="rounded-xl w-full h-auto object-cover aspect-[4/3]"
                   onError={(e) => {
-                    // Fallback to another reliable garment industry image if primary image fails
+                    // Fallback to another reliable manpower/labor workers image if primary image fails
                     const target = e.target as HTMLImageElement;
                     target.onerror = null; // Prevent infinite loop
-                    target.src = "https://images.unsplash.com/photo-1560264280-88b68371db39"; // Workers in textile/garment factory
+                    target.src = "https://images.unsplash.com/photo-1541877944-ac82a091518a"; // Different workers image
                   }}
                 />
               </div>
