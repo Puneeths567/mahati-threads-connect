@@ -97,7 +97,7 @@ const Navbar = () => {
         
         <div
           className={cn(
-            'fixed inset-0 bg-white z-[105] transform transition-transform duration-300 ease-out-expo md:hidden',
+            'fixed inset-y-0 right-0 w-[250px] bg-white z-[105] transform transition-transform duration-300 ease-out-expo md:hidden',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
