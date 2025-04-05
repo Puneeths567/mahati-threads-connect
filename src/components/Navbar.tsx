@@ -55,7 +55,7 @@ const Navbar = () => {
         {/* Logo */}
         <a 
           href="#home"
-          className="font-display text-2xl font-semibold relative z-10"
+          className="font-display text-2xl font-semibold relative z-[110]"
         >
           Mahati
           <span className="text-primary font-bold">.</span>
@@ -80,23 +80,24 @@ const Navbar = () => {
         {/* Mobile Navigation Toggle - Increased z-index */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-[100] p-1"
+          className="md:hidden relative z-[110] p-1"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* Mobile Navigation Menu - Fixed positioning and improved overlay */}
-        {isOpen && (
-          <div 
-            className="fixed inset-0 bg-black/30 z-[90]"
-            onClick={() => setIsOpen(false)}
-          ></div>
-        )}
+        <div 
+          className={cn(
+            "fixed inset-0 bg-black/30 z-[100] transition-opacity duration-300 md:hidden",
+            isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          )}
+          onClick={() => setIsOpen(false)}
+        ></div>
         
         <div
           className={cn(
-            'fixed inset-0 bg-white z-[95] transform transition-transform duration-300 ease-out-expo md:hidden',
+            'fixed inset-0 bg-white z-[105] transform transition-transform duration-300 ease-out-expo md:hidden',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
