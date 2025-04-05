@@ -1,11 +1,8 @@
-
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedSection from './AnimatedSection';
-
 const Hero = () => {
-  return (
-    <section id="home" className="relative min-h-screen flex items-center py-20 overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center py-20 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background/80 -z-10"></div>
       
@@ -42,33 +39,11 @@ const Hero = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <a 
-                  href="#services" 
-                  className={cn(
-                    "inline-flex items-center justify-center rounded-md",
-                    "bg-primary text-primary-foreground",
-                    "px-6 py-3 font-medium",
-                    "transition-all duration-300 ease-out-expo",
-                    "hover:shadow-xl hover:shadow-primary/20 hover:translate-y-[-2px]",
-                    "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
-                  )}
-                >
+                <a href="#services" className={cn("inline-flex items-center justify-center rounded-md", "bg-primary text-primary-foreground", "px-6 py-3 font-medium", "transition-all duration-300 ease-out-expo", "hover:shadow-xl hover:shadow-primary/20 hover:translate-y-[-2px]", "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2")}>
                   Explore Services
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
-                <a 
-                  href="#contact" 
-                  className={cn(
-                    "inline-flex items-center justify-center rounded-md",
-                    "border border-input bg-background/80 backdrop-blur-sm",
-                    "px-6 py-3 font-medium",
-                    "transition-all duration-300 ease-out-expo",
-                    "hover:bg-secondary hover:text-secondary-foreground",
-                    "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
-                  )}
-                >
-                  Contact Us
-                </a>
+                
               </div>
               
               <div className="mt-8 flex items-center gap-4">
@@ -83,17 +58,12 @@ const Hero = () => {
           <AnimatedSection animation="slide-in-right" className="hidden lg:block">
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
-                <img 
-                  src="https://images.unsplash.com/photo-1560264280-88b68371db39"
-                  alt="Skilled labor workers for manpower supply services by Mahati Enterprises"
-                  className="rounded-xl w-full h-auto object-cover aspect-[4/3]"
-                  onError={(e) => {
-                    // Fallback to another reliable manpower/labor workers image if primary image fails
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null; // Prevent infinite loop
-                    target.src = "https://images.unsplash.com/photo-1541877944-ac82a091518a"; // Different workers image
-                  }}
-                />
+                <img src="https://images.unsplash.com/photo-1560264280-88b68371db39" alt="Skilled labor workers for manpower supply services by Mahati Enterprises" className="rounded-xl w-full h-auto object-cover aspect-[4/3]" onError={e => {
+                // Fallback to another reliable manpower/labor workers image if primary image fails
+                const target = e.target as HTMLImageElement;
+                target.onerror = null; // Prevent infinite loop
+                target.src = "https://images.unsplash.com/photo-1541877944-ac82a091518a"; // Different workers image
+              }} />
               </div>
               
               {/* Decorative elements */}
@@ -106,8 +76,6 @@ const Hero = () => {
           </AnimatedSection>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
