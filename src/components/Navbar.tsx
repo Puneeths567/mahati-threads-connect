@@ -55,7 +55,7 @@ const Navbar = () => {
         {/* Logo */}
         <a 
           href="#home"
-          className="font-display text-2xl font-semibold relative z-[110]"
+          className="font-display text-2xl font-semibold relative z-[60]"
         >
           Mahati
           <span className="text-primary font-bold">.</span>
@@ -80,16 +80,16 @@ const Navbar = () => {
         {/* Mobile Navigation Toggle - Increased z-index */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-[110] p-1"
+          className="md:hidden relative z-[60] p-1"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Navigation Menu - Fixed positioning and improved overlay */}
+        {/* Mobile Navigation Menu */}
         <div 
           className={cn(
-            "fixed inset-0 bg-black/30 z-[100] transition-opacity duration-300 md:hidden",
+            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[50] transition-opacity duration-300 md:hidden",
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           )}
           onClick={() => setIsOpen(false)}
@@ -97,21 +97,38 @@ const Navbar = () => {
         
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-[250px] bg-white z-[105] transform transition-transform duration-300 ease-out-expo md:hidden',
+            'fixed inset-y-0 right-0 w-[80%] max-w-[300px] bg-white z-[55] transform transition-transform duration-300 ease-out-expo md:hidden',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
-          <div className="flex flex-col h-full justify-center items-center space-y-8 pt-16">
-            {navItems.map((item) => (
-              <a
-                key={item.title}
-                href={item.href}
-                className="text-2xl font-medium text-primary hover:text-primary/80 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.title}
-              </a>
-            ))}
+          <div className="flex flex-col h-full pt-20 pb-8 px-6">
+            <nav className="flex-1">
+              <ul className="flex flex-col space-y-6">
+                {navItems.map((item) => (
+                  <li key={item.title}>
+                    <a
+                      href={item.href}
+                      className="text-xl font-medium text-primary hover:text-primary/80 transition-colors block py-2"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            
+            <div className="mt-auto pt-6 border-t border-gray-100">
+              <div className="text-sm text-muted-foreground">
+                <div className="font-medium text-primary">For Enquiries:</div>
+                <a href="tel:+917975414686" className="block mt-1 hover:text-primary transition-colors">
+                  +91 7975414686
+                </a>
+                <a href="tel:+919380114195" className="block mt-1 hover:text-primary transition-colors">
+                  +91 9380114195
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
