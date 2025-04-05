@@ -24,6 +24,19 @@ const Navbar = () => {
     };
   }, []);
 
+  // Add effect to prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const navItems = [
     { title: 'Home', href: '#home' },
     { title: 'Services', href: '#services' },
@@ -67,16 +80,23 @@ const Navbar = () => {
         {/* Mobile Navigation Toggle - Increased z-index */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-[60] p-1"
+          className="md:hidden relative z-[100] p-1"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Navigation Menu - Fixed z-index */}
+        {/* Mobile Navigation Menu - Fixed positioning and improved overlay */}
+        {isOpen && (
+          <div 
+            className="fixed inset-0 bg-black/30 z-[90]"
+            onClick={() => setIsOpen(false)}
+          ></div>
+        )}
+        
         <div
           className={cn(
-            'fixed inset-0 bg-white z-[50] transform transition-transform duration-300 ease-out-expo',
+            'fixed inset-0 bg-white z-[95] transform transition-transform duration-300 ease-out-expo md:hidden',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
