@@ -1,9 +1,11 @@
 
 import { 
+  Users,
   Shirt, 
-  Users, 
-  Palmtree, 
-  Home, 
+  Warehouse,
+  Utensils,
+  Building,
+  Forklift,
   Package
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -33,34 +35,40 @@ const ServiceCard = ({ title, description, icon: Icon, delay }: ServiceCardProps
 const Services = () => {
   const services = [
     {
-      title: 'Garment Refinishing',
-      description: 'Expert finishing touches that elevate the quality and appearance of garments to professional standards.',
-      icon: Shirt,
+      title: 'Manpower Supply',
+      description: 'Comprehensive skilled workforce solutions tailored for businesses across various industries including manufacturing, warehousing, and logistics.',
+      icon: Users,
       delay: 100
     },
     {
-      title: 'Manpower Supply',
-      description: 'Skilled workforce provision tailored to the specific needs of your clothing production operations.',
-      icon: Users,
+      title: 'Warehouse Staffing',
+      description: 'Specialized pickers, loaders, and warehouse staff to optimize your storage and distribution operations.',
+      icon: Warehouse,
       delay: 200
     },
     {
-      title: 'Gardening',
-      description: 'Professional landscaping and maintenance services to keep your business premises aesthetically pleasing.',
-      icon: Palmtree,
+      title: 'Food Industry Workers',
+      description: 'Skilled staff for food processing, packaging, and warehouse operations in the food industry.',
+      icon: Utensils,
       delay: 300
     },
     {
-      title: 'House Keeping',
-      description: 'Comprehensive cleaning and maintenance services ensuring a pristine environment for your operations.',
-      icon: Home,
+      title: 'Garment Refinishing',
+      description: 'Expert finishing touches that elevate the quality and appearance of garments to professional standards.',
+      icon: Shirt,
       delay: 400
     },
     {
-      title: 'Loading and Unloading',
-      description: 'Efficient logistics support for handling merchandise and materials with care and precision.',
-      icon: Package,
+      title: 'Manufacturing Support',
+      description: 'Skilled operators and laborers for manufacturing facilities across various production processes.',
+      icon: Building,
       delay: 500
+    },
+    {
+      title: 'Loading & Logistics',
+      description: 'Efficient logistics support personnel for handling merchandise and materials with care and precision.',
+      icon: Forklift,
+      delay: 600
     }
   ];
 
@@ -72,10 +80,10 @@ const Services = () => {
             Our Expertise
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-semibold mt-2 mb-4">
-            Services Offered
+            Manpower Solutions
           </h2>
           <p className="text-muted-foreground">
-            As a comprehensive B2B solution provider, we offer a range of professional services to meet your business needs.
+            Mahati Enterprises is your solution for professional manpower supply needs. We provide skilled workers across various industries, ensuring efficient operations and quality service.
           </p>
         </AnimatedSection>
 

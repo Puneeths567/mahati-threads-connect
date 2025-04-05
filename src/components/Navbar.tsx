@@ -64,19 +64,19 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Mobile Navigation Toggle */}
+        {/* Mobile Navigation Toggle - Increased z-index */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-10 p-1"
+          className="md:hidden relative z-[60] p-1"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation Menu - Fixed z-index */}
         <div
           className={cn(
-            'fixed inset-0 bg-white z-0 transform transition-transform duration-300 ease-out-expo',
+            'fixed inset-0 bg-white z-[50] transform transition-transform duration-300 ease-out-expo',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >

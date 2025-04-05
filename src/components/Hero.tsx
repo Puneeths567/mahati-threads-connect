@@ -23,21 +23,21 @@ const Hero = () => {
                 Mahati Enterprises
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
-                Specialized in premium clothing refinishing and professional manpower supply solutions for the garment industry.
+                Your premier solution for professional manpower supply services across various industries, including skilled workers, pickers, loaders, and garment refinishing specialists.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
-                <span className="flex items-center text-sm px-4 py-2 bg-primary/10 text-primary rounded-full">
-                  <span className="mr-2 bg-primary/20 w-1.5 h-1.5 rounded-full"></span>
-                  Clothing Refinishing
-                </span>
                 <span className="flex items-center text-sm px-4 py-2 bg-primary/10 text-primary rounded-full">
                   <span className="mr-2 bg-primary/20 w-1.5 h-1.5 rounded-full"></span>
                   Manpower Supply
                 </span>
                 <span className="flex items-center text-sm px-4 py-2 bg-primary/10 text-primary rounded-full">
                   <span className="mr-2 bg-primary/20 w-1.5 h-1.5 rounded-full"></span>
-                  Professional Services
+                  Clothing Refinishing
+                </span>
+                <span className="flex items-center text-sm px-4 py-2 bg-primary/10 text-primary rounded-full">
+                  <span className="mr-2 bg-primary/20 w-1.5 h-1.5 rounded-full"></span>
+                  Business Solutions
                 </span>
               </div>
               
