@@ -48,8 +48,8 @@ const Hero = () => {
               
               <div className="mt-8 flex items-center gap-4">
                 <div className="text-sm">
-                  <div className="font-medium">For Enquiries:</div>
-                  <div className="text-muted-foreground">+91 7975414686, +91 9380114195</div>
+                  
+                  
                 </div>
               </div>
             </div>
