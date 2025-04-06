@@ -86,7 +86,7 @@ const Navbar = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation Menu Overlay */}
         <div 
           className={cn(
             "fixed inset-0 bg-black/50 backdrop-blur-sm z-[50] transition-opacity duration-300 md:hidden",
@@ -95,9 +95,10 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
         ></div>
         
+        {/* Mobile Navigation Menu Panel */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-[80%] max-w-[300px] bg-white z-[55] transform transition-transform duration-300 ease-out-expo md:hidden',
+            'fixed inset-y-0 right-0 w-[80%] max-w-[300px] bg-white z-[55] transform transition-transform duration-300 ease-out-expo md:hidden shadow-xl overflow-y-auto',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
@@ -108,7 +109,7 @@ const Navbar = () => {
                   <li key={item.title}>
                     <a
                       href={item.href}
-                      className="text-xl font-medium text-primary hover:text-primary/80 transition-colors block py-2"
+                      className="text-xl font-medium text-foreground hover:text-primary transition-colors block py-2"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.title}

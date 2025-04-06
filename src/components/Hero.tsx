@@ -1,6 +1,8 @@
+
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedSection from './AnimatedSection';
+
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center py-20 overflow-hidden">
       {/* Background gradient */}
@@ -43,14 +45,6 @@ const Hero = () => {
                   Explore Services
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
-                
-              </div>
-              
-              <div className="mt-8 flex items-center gap-4">
-                <div className="text-sm">
-                  
-                  
-                </div>
               </div>
             </div>
           </AnimatedSection>
@@ -58,11 +52,11 @@ const Hero = () => {
           <AnimatedSection animation="slide-in-right" className="hidden lg:block">
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
-                <img src="https://images.unsplash.com/photo-1560264280-88b68371db39" alt="Skilled labor workers for manpower supply services by Mahati Enterprises" className="rounded-xl w-full h-auto object-cover aspect-[4/3]" onError={e => {
+                <img src="https://images.unsplash.com/photo-1541877944-ac82a091518a" alt="Skilled labor workers for manpower supply services by Mahati Enterprises" className="rounded-xl w-full h-auto object-cover aspect-[4/3]" onError={e => {
                 // Fallback to another reliable manpower/labor workers image if primary image fails
                 const target = e.target as HTMLImageElement;
                 target.onerror = null; // Prevent infinite loop
-                target.src = "https://images.unsplash.com/photo-1541877944-ac82a091518a"; // Different workers image
+                target.src = "https://images.unsplash.com/photo-1560264280-88b68371db39"; // Fallback image
               }} />
               </div>
               
@@ -78,4 +72,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;
