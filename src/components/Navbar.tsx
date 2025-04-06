@@ -37,6 +37,11 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  // Close menu when clicking a navigation link
+  const handleMenuItemClick = () => {
+    setIsOpen(false);
+  };
+
   const navItems = [
     { title: 'Home', href: '#home' },
     { title: 'Services', href: '#services' },
@@ -55,7 +60,7 @@ const Navbar = () => {
         {/* Logo */}
         <a 
           href="#home"
-          className="font-display text-2xl font-semibold relative z-[110]"
+          className="font-display text-2xl font-semibold relative z-[101]"
         >
           Mahati
           <span className="text-primary font-bold">.</span>
@@ -77,7 +82,7 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Mobile Navigation Toggle - Increased z-index */}
+        {/* Mobile Navigation Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden relative z-[110] p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
@@ -89,7 +94,7 @@ const Navbar = () => {
         {/* Mobile Navigation Menu Overlay */}
         <div 
           className={cn(
-            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[101] transition-opacity duration-300 md:hidden",
+            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[102] transition-opacity duration-300 md:hidden",
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           )}
           onClick={() => setIsOpen(false)}
@@ -98,7 +103,7 @@ const Navbar = () => {
         {/* Mobile Navigation Menu Panel */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-[75%] max-w-[280px] bg-white/95 backdrop-blur-sm z-[105] transform transition-transform duration-300 ease-out-expo md:hidden shadow-2xl overflow-y-auto border-l border-primary/10',
+            'fixed inset-y-0 right-0 w-[75%] max-w-[280px] bg-white shadow-2xl overflow-y-auto z-[103] transform transition-transform duration-300 ease-out-expo md:hidden border-l border-primary/10',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
@@ -110,7 +115,7 @@ const Navbar = () => {
                     <a
                       href={item.href}
                       className="flex items-center text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
-                      onClick={() => setIsOpen(false)}
+                      onClick={handleMenuItemClick}
                     >
                       <span className="bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center mr-3">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>

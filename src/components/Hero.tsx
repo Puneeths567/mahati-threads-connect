@@ -53,8 +53,8 @@ const Hero = () => {
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
                 <img 
-                  src="/lovable-uploads/929ef841-b141-4f38-ac0a-61ade2756977.png" 
-                  alt="Warehouse logistics and manpower services by Mahati Enterprises" 
+                  src="/lovable-uploads/98f1e3e8-eb5a-4565-ac4c-594efd8224fc.png" 
+                  alt="Warehouse worker operating equipment in a logistics facility" 
                   className="rounded-xl w-full h-auto object-cover aspect-[4/3]" 
                   onError={e => {
                     // Fallback to stock image if custom upload fails
