@@ -52,12 +52,17 @@ const Hero = () => {
           <AnimatedSection animation="slide-in-right" className="hidden lg:block">
             <div className="relative">
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/10 p-1">
-                <img src="https://images.unsplash.com/photo-1541877944-ac82a091518a" alt="Skilled labor workers for manpower supply services by Mahati Enterprises" className="rounded-xl w-full h-auto object-cover aspect-[4/3]" onError={e => {
-                // Fallback to another reliable manpower/labor workers image if primary image fails
-                const target = e.target as HTMLImageElement;
-                target.onerror = null; // Prevent infinite loop
-                target.src = "https://images.unsplash.com/photo-1560264280-88b68371db39"; // Fallback image
-              }} />
+                <img 
+                  src="/lovable-uploads/929ef841-b141-4f38-ac0a-61ade2756977.png" 
+                  alt="Warehouse logistics and manpower services by Mahati Enterprises" 
+                  className="rounded-xl w-full h-auto object-cover aspect-[4/3]" 
+                  onError={e => {
+                    // Fallback to stock image if custom upload fails
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null; // Prevent infinite loop
+                    target.src = "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8"; // Warehouse/logistics fallback
+                  }} 
+                />
               </div>
               
               {/* Decorative elements */}

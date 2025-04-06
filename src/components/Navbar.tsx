@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-[100] transition-all duration-300',
         scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
       )}
     >
@@ -55,7 +55,7 @@ const Navbar = () => {
         {/* Logo */}
         <a 
           href="#home"
-          className="font-display text-2xl font-semibold relative z-[60]"
+          className="font-display text-2xl font-semibold relative z-[110]"
         >
           Mahati
           <span className="text-primary font-bold">.</span>
@@ -80,16 +80,16 @@ const Navbar = () => {
         {/* Mobile Navigation Toggle - Increased z-index */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-[60] p-1"
+          className="md:hidden relative z-[110] p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
           aria-label="Toggle Menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         {/* Mobile Navigation Menu Overlay */}
         <div 
           className={cn(
-            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[50] transition-opacity duration-300 md:hidden",
+            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[101] transition-opacity duration-300 md:hidden",
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           )}
           onClick={() => setIsOpen(false)}
@@ -98,20 +98,23 @@ const Navbar = () => {
         {/* Mobile Navigation Menu Panel */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-[80%] max-w-[300px] bg-white z-[55] transform transition-transform duration-300 ease-out-expo md:hidden shadow-xl overflow-y-auto',
+            'fixed inset-y-0 right-0 w-[75%] max-w-[280px] bg-white/95 backdrop-blur-sm z-[105] transform transition-transform duration-300 ease-out-expo md:hidden shadow-2xl overflow-y-auto border-l border-primary/10',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
         >
-          <div className="flex flex-col h-full pt-20 pb-8 px-6">
+          <div className="flex flex-col h-full pt-24 pb-8 px-6">
             <nav className="flex-1">
               <ul className="flex flex-col space-y-6">
                 {navItems.map((item) => (
-                  <li key={item.title}>
+                  <li key={item.title} className="border-b border-primary/10 pb-4">
                     <a
                       href={item.href}
-                      className="text-xl font-medium text-foreground hover:text-primary transition-colors block py-2"
+                      className="flex items-center text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
                       onClick={() => setIsOpen(false)}
                     >
+                      <span className="bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                      </span>
                       {item.title}
                     </a>
                   </li>
@@ -119,15 +122,10 @@ const Navbar = () => {
               </ul>
             </nav>
             
-            <div className="mt-auto pt-6 border-t border-gray-100">
+            <div className="mt-auto pt-6 border-t border-primary/10">
               <div className="text-sm text-muted-foreground">
-                <div className="font-medium text-primary">For Enquiries:</div>
-                <a href="tel:+917975414686" className="block mt-1 hover:text-primary transition-colors">
-                  +91 7975414686
-                </a>
-                <a href="tel:+919380114195" className="block mt-1 hover:text-primary transition-colors">
-                  +91 9380114195
-                </a>
+                <div className="font-medium text-primary/80 mb-2">© 2025 Mahati Enterprises</div>
+                <div className="text-xs opacity-70">Professional B2B Services</div>
               </div>
             </div>
           </div>
