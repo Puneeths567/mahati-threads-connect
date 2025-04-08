@@ -85,56 +85,53 @@ const Navbar = () => {
         {/* Mobile Navigation Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-[1000] p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+          className="md:hidden relative z-[9999] p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        {/* Mobile Navigation Menu Overlay */}
-        <div 
-          className={cn(
-            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[900] transition-opacity duration-300 md:hidden",
-            isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          )}
-          onClick={() => setIsOpen(false)}
-        ></div>
-        
-        {/* Mobile Navigation Menu Panel */}
-        <div
-          className={cn(
-            'fixed top-0 bottom-0 right-0 w-[75%] max-w-[280px] bg-white shadow-2xl overflow-y-auto z-[950] transform transition-transform duration-300 ease-out-expo md:hidden border-l border-primary/10',
-            isOpen ? 'translate-x-0' : 'translate-x-full'
-          )}
-        >
-          <div className="flex flex-col h-full pt-24 pb-8 px-6">
-            <nav className="flex-1">
-              <ul className="flex flex-col space-y-6">
-                {navItems.map((item) => (
-                  <li key={item.title} className="border-b border-primary/10 pb-4">
-                    <a
-                      href={item.href}
-                      className="flex items-center text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
-                      onClick={handleMenuItemClick}
-                    >
-                      <span className="bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center mr-3">
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                      </span>
-                      {item.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+        {/* Mobile Navigation Menu */}
+        {isOpen && (
+          <div className="fixed inset-0 z-[9998] md:hidden">
+            {/* Overlay */}
+            <div 
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+            />
             
-            <div className="mt-auto pt-6 border-t border-primary/10">
-              <div className="text-sm text-muted-foreground">
-                <div className="font-medium text-primary/80 mb-2">© 2025 Mahati Enterprises</div>
-                <div className="text-xs opacity-70">Professional B2B Services</div>
+            {/* Menu Panel */}
+            <div className="absolute top-0 right-0 bottom-0 w-[75%] max-w-[280px] bg-white shadow-2xl h-full overflow-y-auto border-l border-primary/10">
+              <div className="flex flex-col h-full pt-24 pb-8 px-6">
+                <nav className="flex-1">
+                  <ul className="flex flex-col space-y-6">
+                    {navItems.map((item) => (
+                      <li key={item.title} className="border-b border-primary/10 pb-4">
+                        <a
+                          href={item.href}
+                          className="flex items-center text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
+                          onClick={handleMenuItemClick}
+                        >
+                          <span className="bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                            <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                          </span>
+                          {item.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+                
+                <div className="mt-auto pt-6 border-t border-primary/10">
+                  <div className="text-sm text-muted-foreground">
+                    <div className="font-medium text-primary/80 mb-2">© 2025 Mahati Enterprises</div>
+                    <div className="text-xs opacity-70">Professional B2B Services</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
