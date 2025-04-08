@@ -85,7 +85,7 @@ const Navbar = () => {
         {/* Mobile Navigation Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-[9999] p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+          className="md:hidden relative z-[200] p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -94,7 +94,7 @@ const Navbar = () => {
         {/* Mobile Navigation Menu Overlay */}
         <div 
           className={cn(
-            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[9990] transition-opacity duration-300 md:hidden",
+            "fixed inset-0 bg-black/50 backdrop-blur-sm z-[150] transition-opacity duration-300 md:hidden",
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           )}
           onClick={() => setIsOpen(false)}
@@ -103,10 +103,9 @@ const Navbar = () => {
         {/* Mobile Navigation Menu Panel */}
         <div
           className={cn(
-            'fixed inset-0 right-0 w-[75%] max-w-[280px] bg-white shadow-2xl overflow-y-auto z-[9995] transform transition-transform duration-300 ease-out-expo md:hidden border-l border-primary/10',
+            'fixed top-0 bottom-0 right-0 w-[75%] max-w-[280px] bg-white shadow-2xl overflow-y-auto z-[175] transform transition-transform duration-300 ease-out-expo md:hidden border-l border-primary/10',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
-          style={{ height: '100%' }}
         >
           <div className="flex flex-col h-full pt-24 pb-8 px-6">
             <nav className="flex-1">
