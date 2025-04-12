@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,9 +65,9 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Mobile Navigation - Using Sheet component */}
+        {/* Mobile Navigation - Using Sheet component with open state control */}
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
                 className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors z-50 relative"
@@ -83,6 +84,7 @@ const Navbar = () => {
                       <a
                         href={item.href}
                         className="flex items-center text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
+                        onClick={() => setOpen(false)}
                       >
                         <span className="bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center mr-3">
                           <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
