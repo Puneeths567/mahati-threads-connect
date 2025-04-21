@@ -18,6 +18,13 @@ const Clients = () => {
       logo: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
       alt: "Maersk logo - global logistics company",
       url: "https://www.maersk.com/"
+    },
+    {
+      name: "TRENT LIMITED - A TATA ENTERPRISE",
+      description: "One of India’s most respected retail enterprises, Tata Trent operates popular lifestyle brands like Westside, Zudio, and Landmark, shaping the future of fashion and value retail in the country.",
+      logo: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      alt: "TRENT LIMITED - Tata Trent Retail Enterprise",
+      url: "https://trentlimited.com/"
     }
   ];
 
@@ -97,3 +104,4 @@ const Clients = () => {
 };
 
 export default Clients;
+
