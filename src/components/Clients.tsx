@@ -22,7 +22,7 @@ const Clients = () => {
     {
       name: "TRENT LIMITED - A TATA ENTERPRISE",
       description: "One of India’s most respected retail enterprises, Tata Trent operates popular lifestyle brands like Westside, Zudio, and Landmark, shaping the future of fashion and value retail in the country.",
-      logo: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      logo: "/lovable-uploads/51297cbe-ff45-4a88-aed9-3fcc690c7610.png",
       alt: "TRENT LIMITED - Tata Trent Retail Enterprise",
       url: "https://trentlimited.com/"
     }
